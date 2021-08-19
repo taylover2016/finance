@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Time</th>
+                    <th>Symbol</th>
+                    <th>Share Price</th>
+                    <th>Shares</th>
+                    <th>Total Price</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for transaction in history %}
+                    <tr>
+                        <td>
+                            {{ transaction.transaction_id }}
+                        </td>
+                        <td>
+                            {{ transaction.time }}
+                        </td>
+                        <td>
+                            {{ transaction.symbol }}
+                        </td>
+                        <td>
+                            {{ transaction.price }}
+                        </td>
+                        <td>
+                            {{ transaction.shares }}
+                        </td>
+                        <td>
+                            {{ transaction.total_price }}
+                        </td>
+                        <td>
+                            {{ transaction.type }}
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cash</th>
+                    <th>Stock</th>
+                    <th>Assets</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    <tr>
+                        <td>{{ cash }}</td>
+                        <td>{{ stock }}</td>
+                        <td>{{ assets }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Company Name</th>
+                    <th>Shares</th>
+                    <th>Share Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for position in positions %}
+                    <tr>
+                        <td>{{ position.symbol }}</td>
+                        <td>{{ position.name }}</td>
+                        <td>{{ position.shares }}</td>
+                        <td>{{ position.price }}</td>
+                        <td>{{ position.total_price }}</td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+    </div>
+
+{% endblock %}
